@@ -927,3 +927,380 @@ graphql.error.located_error.GraphQLLocatedError: Expecting value: line 1 column 
 118.185.180.100 - - [12/Aug/2019 15:02:50] "OPTIONS /graphql HTTP/1.1" 200 -
 118.185.180.100 - - [12/Aug/2019 15:02:51] "POST /graphql HTTP/1.1" 200 -
 118.185.180.100 - - [12/Aug/2019 15:02:55] "POST /graphql HTTP/1.1" 400 -
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8082/ (Press CTRL+C to quit)
+118.185.180.100 - - [23/Aug/2019 10:42:12] "GET /graphql?query=%7B%0A%20%20search(q%3A%22Currency%22%2C%20fq%3A%5B%5D%2C%20size%3A10%2C%20depth%3A0%2C%20page%3A1)%7B%0A%20%20%20%20numFound%0A%20%20%20%20docs%20%7B%0A%20%20%20%20%20%20subject_label%0A%20%20%20%20%20%20predicate_label%0A%20%20%20%20%20%20object_label%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:42:13] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:42:19] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:42:19] "POST /graphql HTTP/1.1" 400 -
+118.185.180.100 - - [23/Aug/2019 10:42:21] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:42:21] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:42:22] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:42:22] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:43:51] "OPTIONS /graphql HTTP/1.1" 200 -
+An error occurred while resolving field Query.search
+Traceback (most recent call last):
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executor.py", line 450, in resolve_or_error
+    return executor.execute(resolve_fn, source, info, **args)
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executors/sync.py", line 16, in execute
+    return fn(*args, **kwargs)
+  File "app.py", line 41, in resolve_search
+    output = ob1.execute_query()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 112, in execute_query
+    all_objects = self.execute_sparql_request()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 62, in execute_sparql_request
+    json_content = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executor.py", line 450, in resolve_or_error
+    return executor.execute(resolve_fn, source, info, **args)
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executors/sync.py", line 16, in execute
+    return fn(*args, **kwargs)
+  File "app.py", line 41, in resolve_search
+    output = ob1.execute_query()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 112, in execute_query
+    all_objects = self.execute_sparql_request()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 62, in execute_sparql_request
+    json_content = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+graphql.error.located_error.GraphQLLocatedError: Expecting value: line 1 column 1 (char 0)
+
+118.185.180.100 - - [23/Aug/2019 10:43:51] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:43:53] "POST /graphql HTTP/1.1" 400 -
+118.185.180.100 - - [23/Aug/2019 10:44:08] "OPTIONS /graphql HTTP/1.1" 200 -
+An error occurred while resolving field Query.search
+Traceback (most recent call last):
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executor.py", line 450, in resolve_or_error
+    return executor.execute(resolve_fn, source, info, **args)
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executors/sync.py", line 16, in execute
+    return fn(*args, **kwargs)
+  File "app.py", line 41, in resolve_search
+    output = ob1.execute_query()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 112, in execute_query
+    all_objects = self.execute_sparql_request()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 62, in execute_sparql_request
+    json_content = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executor.py", line 450, in resolve_or_error
+    return executor.execute(resolve_fn, source, info, **args)
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executors/sync.py", line 16, in execute
+    return fn(*args, **kwargs)
+  File "app.py", line 41, in resolve_search
+    output = ob1.execute_query()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 112, in execute_query
+    all_objects = self.execute_sparql_request()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 62, in execute_sparql_request
+    json_content = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+graphql.error.located_error.GraphQLLocatedError: Expecting value: line 1 column 1 (char 0)
+
+118.185.180.100 - - [23/Aug/2019 10:44:08] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:44:16] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:44:16] "POST /graphql HTTP/1.1" 400 -
+118.185.180.100 - - [23/Aug/2019 10:44:19] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:44:20] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:44:20] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:44:20] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:44:21] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:57:09] "OPTIONS /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:57:09] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:57:09] "POST /graphql HTTP/1.1" 200 -
+An error occurred while resolving field Query.search
+Traceback (most recent call last):
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executor.py", line 450, in resolve_or_error
+    return executor.execute(resolve_fn, source, info, **args)
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executors/sync.py", line 16, in execute
+    return fn(*args, **kwargs)
+  File "app.py", line 41, in resolve_search
+    output = ob1.execute_query()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 112, in execute_query
+    all_objects = self.execute_sparql_request()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 62, in execute_sparql_request
+    json_content = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executor.py", line 450, in resolve_or_error
+    return executor.execute(resolve_fn, source, info, **args)
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executors/sync.py", line 16, in execute
+    return fn(*args, **kwargs)
+  File "app.py", line 41, in resolve_search
+    output = ob1.execute_query()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 112, in execute_query
+    all_objects = self.execute_sparql_request()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 62, in execute_sparql_request
+    json_content = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+graphql.error.located_error.GraphQLLocatedError: Expecting value: line 1 column 1 (char 0)
+
+118.185.180.100 - - [23/Aug/2019 10:57:10] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:57:15] "OPTIONS /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:57:16] "POST /graphql HTTP/1.1" 400 -
+118.185.180.100 - - [23/Aug/2019 10:57:59] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:57:59] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:57:59] "OPTIONS /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:57:59] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:57:59] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:58:00] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:58:00] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:58:00] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:58:05] "OPTIONS /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:58:05] "POST /graphql HTTP/1.1" 200 -
+An error occurred while resolving field Query.search
+Traceback (most recent call last):
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executor.py", line 450, in resolve_or_error
+    return executor.execute(resolve_fn, source, info, **args)
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executors/sync.py", line 16, in execute
+    return fn(*args, **kwargs)
+  File "app.py", line 41, in resolve_search
+    output = ob1.execute_query()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 112, in execute_query
+    all_objects = self.execute_sparql_request()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 62, in execute_sparql_request
+    json_content = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executor.py", line 450, in resolve_or_error
+    return executor.execute(resolve_fn, source, info, **args)
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executors/sync.py", line 16, in execute
+    return fn(*args, **kwargs)
+  File "app.py", line 41, in resolve_search
+    output = ob1.execute_query()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 112, in execute_query
+    all_objects = self.execute_sparql_request()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 62, in execute_sparql_request
+    json_content = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+graphql.error.located_error.GraphQLLocatedError: Expecting value: line 1 column 1 (char 0)
+
+121.242.106.34 - - [23/Aug/2019 10:58:06] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:58:13] "OPTIONS /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 10:58:14] "POST /graphql HTTP/1.1" 400 -
+118.185.180.100 - - [23/Aug/2019 10:58:15] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:58:16] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:58:16] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 10:58:16] "POST /graphql HTTP/1.1" 200 -
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:CurrencyKey'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.6630553'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:Currency_Key'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyName'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.4133197'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_name'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyCode'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.4133197'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_code'}}]}}
+3
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyName'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.7262126'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_name'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyCode'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.7262126'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_code'}}]}}
+2
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:CurrencyKey'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.6630553'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:Currency_Key'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyName'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.4133197'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_name'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyCode'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.4133197'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_code'}}]}}
+3
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyName'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.7262126'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_name'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyCode'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.7262126'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_code'}}]}}
+2
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#UtilizationFactAll:ResourceAlias'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.3880569'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:ResourceAlias'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:ResourceAlias'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.3880569'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#isDerivedFrom'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#UtilizationFactAll:ResourceAlias'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:ResourceAlias'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.025605'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#isDerivedFrom'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#UtilizationFactAll:ResourceAlias'}}]}}118.185.180.100 - - [23/Aug/2019 10:58:17] "POST /graphql HTTP/1.1" 200 -
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8082/ (Press CTRL+C to quit)
+118.185.180.100 - - [23/Aug/2019 11:07:45] "GET /graphql?query=%7B%0A%20%20search(q%3A%22Currency%22%2C%20fq%3A%5B%5D%2C%20size%3A10%2C%20depth%3A0%2C%20page%3A1)%7B%0A%20%20%20%20numFound%0A%20%20%20%20docs%20%7B%0A%20%20%20%20%20%20subject_label%0A%20%20%20%20%20%20predicate_label%0A%20%20%20%20%20%20object_label%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:07:46] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:08:00] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:08:01] "POST /graphql HTTP/1.1" 400 -
+118.185.180.100 - - [23/Aug/2019 11:08:04] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:08:05] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:09:46] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:09:46] "POST /graphql HTTP/1.1" 400 -
+121.242.106.34 - - [23/Aug/2019 11:09:48] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:09:48] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:09:48] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:09:49] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:09:49] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:11:53] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:19:23] "OPTIONS /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:19:24] "POST /graphql HTTP/1.1" 400 -
+121.242.106.34 - - [23/Aug/2019 11:19:39] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:19:39] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:19:40] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:19:40] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:19:41] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:19:41] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:19:42] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:19:42] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:19:43] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:19:43] "POST /graphql HTTP/1.1" 200 -
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:CurrencyKey'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.6630553'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:Currency_Key'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyName'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.4133197'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_name'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyCode'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.4133197'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_code'}}]}}
+3
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:CurrencyKey'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.6630553'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:Currency_Key'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyName'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.4133197'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_name'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyCode'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.4133197'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_code'}}]}}
+3
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#UtilizationFactAll:ResourceAlias'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.3880569'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:ResourceAlias'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:ResourceAlias'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.3880569'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#isDerivedFrom'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#UtilizationFactAll:ResourceAlias'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:ResourceAlias'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.025605'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#isDerivedFrom'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#UtilizationFactAll:ResourceAlias'}}]}}
+2
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:CurrencyKey'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.6630553'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:Currency_Key'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyName'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.4133197'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_name'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#vwCurrencyDimension:BillingCurrencyCode'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.4133197'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#currency:currency_code'}}]}}
+3
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': []}}
+0
+{'head': {'vars': ['subject', 'score', 'predicate', 'object']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#UtilizationFactAll:ResourceAlias'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.3880569'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#hasDerived'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:ResourceAlias'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:ResourceAlias'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.3880569'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#isDerivedFrom'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#UtilizationFactAll:ResourceAlias'}}, {'subject': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#MCSResourceMix:ResourceAlias'}, 'score': {'type': 'literal', 'datatype': 'http://www.w3.org/2001/XMLSchema#float', 'value': '1.025605'}, 'predicate': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#isDerivedFrom'}, 'object': {'type': 'uri', 'value': 'http://www.semanticweb.org/am20773/ontologies/2019/7/untitled-ontology-26#UtilizationFactAll:ResourceAlias'}}]}}118.185.180.100 - - [23/Aug/2019 11:19:43] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:24:28] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:24:28] "OPTIONS /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:24:29] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:24:29] "POST /graphql HTTP/1.1" 200 -
+An error occurred while resolving field Query.search
+Traceback (most recent call last):
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executor.py", line 450, in resolve_or_error
+    return executor.execute(resolve_fn, source, info, **args)
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executors/sync.py", line 16, in execute
+    return fn(*args, **kwargs)
+  File "app.py", line 41, in resolve_search
+    output = ob1.execute_query()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 112, in execute_query
+    all_objects = self.execute_sparql_request()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 62, in execute_sparql_request
+    json_content = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executor.py", line 450, in resolve_or_error
+    return executor.execute(resolve_fn, source, info, **args)
+  File "/home/swaynjtmshr77/semantics_poc/jena-graphql-backend/graphql_env/lib/python3.7/site-packages/graphql/execution/executors/sync.py", line 16, in execute
+    return fn(*args, **kwargs)
+  File "app.py", line 41, in resolve_search
+    output = ob1.execute_query()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 112, in execute_query
+    all_objects = self.execute_sparql_request()
+  File "/home/swaynjtmshr77/semantics_poc/jena-lineage-backend/semantic-search-backend-python/JenaQuery.py", line 62, in execute_sparql_request
+    json_content = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+graphql.error.located_error.GraphQLLocatedError: Expecting value: line 1 column 1 (char 0)
+
+118.185.180.100 - - [23/Aug/2019 11:24:29] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:24:29] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:24:30] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:24:35] "OPTIONS /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:24:35] "POST /graphql HTTP/1.1" 400 -
+118.185.180.100 - - [23/Aug/2019 11:24:36] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:24:37] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:24:38] "POST /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 11:29:08] "GET /graphql?query=%7B%0A%20%20search(q%3A%22Currency%22%2C%20fq%3A%5B%5D%2C%20size%3A10%2C%20depth%3A0%2C%20page%3A1)%7B%0A%20%20%20%20numFound%0A%20%20%20%20docs%20%7B%0A%20%20%20%20%20%20subject_label%0A%20%20%20%20%20%20predicate_label%0A%20%20%20%20%20%20object_label%0A%20%20%20%20%20%20score%0A%20%20%20%20%20%20search_reference%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:29:09] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:29:27] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:47:16] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 11:47:16] "POST /graphql HTTP/1.1" 400 -
+121.242.106.34 - - [23/Aug/2019 12:17:07] "OPTIONS /graphql HTTP/1.1" 200 -
+118.185.180.100 - - [23/Aug/2019 12:17:08] "POST /graphql HTTP/1.1" 400 -
+118.185.180.100 - - [23/Aug/2019 13:25:03] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 13:25:03] "OPTIONS /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 13:25:03] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 13:25:03] "POST /graphql HTTP/1.1" 200 -
+121.242.106.34 - - [23/Aug/2019 13:25:04] "POST /graphql HTTP/1.1" 200 -
